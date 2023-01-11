@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Storage {
+      constructor(){
+        this.state = {
+          names: []
+        }
+      }
+      static instance = null;
+      static getInstance() {
+        if (!this.instance) {
+          this.instance = new Storage();
+        }
+        return this.instance;
+      }
+      getItem(key) {
+        return localStorage.getItem(key);
+      }
+      setItem(key, value) {
+        this.state.names.push(value);
+        localStorage.setItem(key, value);
+      }
+    }
+
+    const storage1 = Storage.getInstance();
+    storage1.setItem("name", "小雨");
+    const storage2 = Storage.getInstance();
+    console.log(storage1.getItem("name"));
+    console.log(storage2.getItem("name"));
+    console.log(storage1.state.names);
+    console.log(storage2.state.names);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #modal {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 500px;
+      height: 300px;
+      background-color: cadetblue;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="show_btn">显示模态框</button>
+  <button id="hidd_btn">隐藏模态框</button>
+  <script>
+    const Modal = (function () {
+      let modal = null;
+      return function () {
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.id = 'modal';
+          modal.style.display = 'none';
+          modal.innerHTML = '我是模态框'
+          document.body.appendChild(modal);
+        }
+        return modal
+      }
+    })()
+    // 点击显示模态框
+    document.getElementById('show_btn').addEventListener('click',()=>{
+      let modal = new Modal();
+      modal.style.display = 'block';
+    })
+    // 点击隐藏模态框
+    document.getElementById('hidd_btn').addEventListener('click',()=>{
+      let modal = new Modal();
+      modal.style.display = 'none';
+    })
+  </script>
+</body>
+
+</html>

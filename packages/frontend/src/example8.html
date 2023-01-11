@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function StorageBase(){}
+    StorageBase.prototype.setItem = function(key,value){
+      localStorage.setItem(key,value)
+    }
+    StorageBase.prototype.getItem = function(key){
+      return localStorage.getItem(key)
+    }
+
+    // 利用闭包生成单例对象
+    const Storage = (function(){
+      let instance = null;
+      return function(){
+        if (!instance) {
+          instance = new StorageBase();
+        }
+        return instance
+      }
+    })()
+
+    const storage1 = Storage();
+    const storage2 = Storage();
+    console.log(storage1 === storage2);
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="input" >
+  <div>预览</div>
+  <script>
+    let input = document.getElementById('input');
+    let previewImg = new Image(400,500);
+    input.addEventListener('change',()=>{
+      let fileReader = new FileReader();
+      fileReader.addEventListener('load',(e)=>{
+        console.log(fileReader.result);
+        previewImg.src = fileReader.result;
+        document.body.appendChild(previewImg);
+      })
+      fileReader.readAsDataURL(input.files[0])
+    })
+  </script>
+</body>
+</html>
