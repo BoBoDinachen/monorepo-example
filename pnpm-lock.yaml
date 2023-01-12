@@ -11,12 +11,16 @@ importers:
   packages/frontend:
     specifiers:
       '@example/server': workspace:*
+      immutable: ^4.2.2
+      nodemon: ^2.0.20
       vite: ^4.0.3
       vue: ^3.2.45
     dependencies:
       '@example/server': link:../server
+      immutable: registry.npmmirror.com/immutable/4.2.2
       vue: registry.npmmirror.com/vue/3.2.45
     devDependencies:
+      nodemon: registry.npmmirror.com/nodemon/2.0.20
       vite: registry.npmmirror.com/vite/4.0.3
 
   packages/server:
@@ -931,6 +935,12 @@ packages:
     name: ignore-by-default
     version: 1.0.1
     dev: true
+
+  registry.npmmirror.com/immutable/4.2.2:
+    resolution: {integrity: sha512-fTMKDwtbvO5tldky9QZ2fMX7slR0mYpY5nbnFWYp0fOzDhHqhgIw9KoYgxLWsoNTS9ZHGauHj18DTyEw6BK3Og==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/immutable/-/immutable-4.2.2.tgz}
+    name: immutable
+    version: 4.2.2
+    dev: false
 
   registry.npmmirror.com/inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/inherits/-/inherits-2.0.4.tgz}

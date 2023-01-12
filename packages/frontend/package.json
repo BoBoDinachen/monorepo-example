@@ -3,17 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec node ./src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@example/server": "workspace:*",
+    "immutable": "^4.2.2",
     "vue": "^3.2.45"
   },
   "devDependencies": {
+    "nodemon": "^2.0.20",
     "vite": "^4.0.3"
   }
 }
